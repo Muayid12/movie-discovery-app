@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { TMDB_CONFIG, API_ENDPOINTS } from '../config/api';
+import { TMDB_CONFIG, API_ENDPOINTS, validateApiKey } from '../config/api';
+
+// Validate API key on import
+validateApiKey();
 
 // Create axios instance with base configuration
 const tmdbApi = axios.create({
@@ -8,6 +11,26 @@ const tmdbApi = axios.create({
     api_key: TMDB_CONFIG.API_KEY,
   },
 });
+
+// Add response interceptor for better error handling
+tmdbApi.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      console.error('🚫 TMDB API Authentication Error');
+      console.log('Your API key is invalid or missing. Please check:');
+      console.log('1. Make sure you have a .env file with REACT_APP_TMDB_API_KEY');
+      console.log('2. Verify your API key is correct');
+      console.log('3. Restart your development server after adding the key');
+      
+      // Create a more user-friendly error message
+      const friendlyError = new Error('TMDB API key is missing or invalid. Please check your .env file and restart the server.');
+      friendlyError.originalError = error;
+      throw friendlyError;
+    }
+    return Promise.reject(error);
+  }
+);
 
 // API service functions
 export const movieApi = {
