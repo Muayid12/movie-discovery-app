@@ -12,10 +12,6 @@ A modern movie discovery web application built with React. Search for movies, vi
 - Responsive design for all devices
 - Smooth animations and modern UI
 
-## Demo
-
-Visit the live demo: [Your Demo Link Here]
-
 ## Technologies Used
 
 - React 18
