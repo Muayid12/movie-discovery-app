@@ -1,236 +1,126 @@
-# 🎬 MovieVerse - Movie Discovery Web App
+# MovieVerse - Movie Discovery App
 
-A modern, responsive movie discovery application built with React, featuring movie search, detailed information, watchlist management, and smooth animations. Powered by The Movie Database (TMDB) API.
+A modern movie discovery web application built with React. Search for movies, view detailed information, and manage your personal watchlist.
 
-## ✨ Features
+## Features
 
-- **🔍 Movie Search** - Search through thousands of movies with real-time results
-- **🎥 Movie Details** - Comprehensive movie information including posters, trailers, cast, and crew
-- **📋 Watchlist Management** - Add/remove movies to your personal watchlist with localStorage persistence
-- **🎭 Genre Filtering** - Browse movies by genre with infinite scroll
-- **🔥 Trending & Top Rated** - Discover what's popular and highly rated
-- **📱 Responsive Design** - Optimized for desktop, tablet, and mobile devices
-- **⚡ Smooth Animations** - Beautiful transitions and animations with Framer Motion
-- **🚀 Performance Optimized** - React Query for caching and state management
+- Search through thousands of movies
+- View detailed movie information including cast, trailers, and ratings
+- Browse movies by genre
+- Discover trending and top-rated movies
+- Personal watchlist with local storage
+- Responsive design for all devices
+- Smooth animations and modern UI
 
-## 🛠️ Tech Stack
+## Demo
 
-- **React 18** - UI library with hooks and modern features
-- **React Router** - Client-side routing
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **React Query (TanStack Query)** - Data fetching and caching
-- **Axios** - HTTP client for API calls
-- **TMDB API** - Movie data source
+Visit the live demo: [Your Demo Link Here]
 
-## 📁 Project Structure
+## Technologies Used
 
-```
-movieverse/
-├── public/
-│   └── index.html
-├── src/
-│   ├── components/
-│   │   ├── common/
-│   │   │   ├── Header.jsx
-│   │   │   ├── MovieCard.jsx
-│   │   │   ├── MovieGrid.jsx
-│   │   │   └── LoadingSpinner.jsx
-│   │   └── home/
-│   │       └── Hero.jsx
-│   ├── hooks/
-│   │   ├── useMovieApi.js
-│   │   └── useWatchlist.js
-│   ├── pages/
-│   │   ├── Home.jsx
-│   │   ├── MovieDetails.jsx
-│   │   ├── SearchResults.jsx
-│   │   ├── TrendingPage.jsx
-│   │   ├── TopRatedPage.jsx
-│   │   ├── GenresPage.jsx
-│   │   └── Watchlist.jsx
-│   ├── services/
-│   │   └── tmdbApi.js
-│   ├── config/
-│   │   └── api.js
-│   ├── App.js
-│   ├── index.js
-│   └── index.css
-├── package.json
-├── tailwind.config.js
-├── postcss.config.js
-└── env.example
-```
+- React 18
+- React Router
+- Tailwind CSS
+- Framer Motion
+- React Query
+- Axios
+- TMDB API
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
+- Node.js (version 14 or higher)
 - npm or yarn
-- TMDB API key
+- TMDB API key (free)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/movieverse.git
-   cd movieverse
+   git clone https://github.com/Muayid12/movie-discovery-app.git
+   cd movie-discovery-app
    ```
 
 2. **Install dependencies**
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
-3. **Set up environment variables**
-   ```bash
-   cp env.example .env
-   ```
-   
-   Edit `.env` and add your TMDB API key:
+3. **Get your TMDB API key**
+   - Go to [TMDB website](https://www.themoviedb.org/)
+   - Create a free account
+   - Go to Settings → API
+   - Request an API key (instant approval)
+
+4. **Set up environment variables**
+   - Copy `env.example` to `.env`
+   - Replace `your_tmdb_api_key_here` with your actual API key
    ```env
    REACT_APP_TMDB_API_KEY=your_actual_api_key_here
    ```
 
-4. **Start the development server**
+5. **Start the application**
    ```bash
    npm start
-   # or
-   yarn start
+   ```
+   
+   The app will open at `http://localhost:3000`
+
+## Usage
+
+### Home Page
+- View trending movies of the week
+- Browse popular and top-rated movies
+- Use the search bar to find specific movies
+
+### Movie Details
+- Click any movie to see detailed information
+- Watch trailers and view cast information
+- Add movies to your watchlist
+
+### Browse by Genre
+- Navigate to the Genres page
+- Select any genre to see related movies
+- Sort movies by popularity, rating, or release date
+
+### Watchlist
+- Add movies to your personal watchlist
+- Sort your watchlist by different criteria
+- Remove movies you've watched
+
+## Available Scripts
+
+- `npm start` - Run the development server
+- `npm build` - Build for production
+- `npm test` - Run tests
+
+## Configuration
+
+The app uses environment variables for configuration:
+
+- `REACT_APP_TMDB_API_KEY` - Your TMDB API key (required)
+
+## Deployment
+
+To deploy the application:
+
+1. Build the project:
+   ```bash
+   npm run build
    ```
 
-5. **Open your browser**
-   Navigate to `http://localhost:3000`
+2. Deploy the `build` folder to your hosting service (Vercel, Netlify, etc.)
 
-### Getting TMDB API Key
+3. Set your environment variables in your hosting platform
 
-1. Go to [TMDB website](https://www.themoviedb.org/)
-2. Create an account or log in
-3. Go to Settings > API
-4. Follow the instructions to get your API key
-5. Add the key to your `.env` file
-
-## 🎯 Key Components
-
-### Custom Hooks
-
-- **`useMovieApi`** - React Query hooks for all TMDB API calls with caching
-- **`useWatchlist`** - LocalStorage-based watchlist management
-
-### Pages
-
-- **`Home`** - Landing page with trending, popular, and top-rated movies
-- **`MovieDetails`** - Comprehensive movie information with tabs and trailers
-- **`SearchResults`** - Search results with infinite scroll
-- **`Watchlist`** - Personal watchlist with sorting options
-- **`TrendingPage`** - Full trending movies list with infinite scroll
-- **`TopRatedPage`** - Top-rated movies with pagination
-- **`GenresPage`** - Genre-based movie browsing
-
-### Reusable Components
-
-- **`MovieCard`** - Individual movie card with poster, rating, and watchlist button
-- **`MovieGrid`** - Responsive grid layout for movies
-- **`Header`** - Navigation with search and mobile-responsive menu
-- **`LoadingSpinner`** - Animated loading indicator
-
-## 🎨 Animations & UX
-
-- Smooth page transitions with Framer Motion
-- Staggered movie card animations
-- Hover effects and micro-interactions
-- Loading states and error handling
-- Infinite scroll for seamless browsing
-- Mobile-first responsive design
-
-## 📊 Performance Features
-
-- **React Query Caching** - Intelligent data caching and synchronization
-- **Image Lazy Loading** - Optimized image loading
-- **Code Splitting** - Automatic code splitting with React Router
-- **Debounced Search** - Efficient search with debouncing
-- **Infinite Scroll** - Memory-efficient pagination
-
-## 🎭 API Integration
-
-The app integrates with TMDB API for:
-- Movie search and discovery
-- Detailed movie information
-- Cast and crew data
-- Movie trailers and videos
-- Genre information
-- Trending and popular movies
-
-## 📱 Responsive Design
-
-- **Mobile First** - Optimized for mobile devices
-- **Tablet Support** - Excellent tablet experience
-- **Desktop Enhanced** - Rich desktop interface
-- **Touch Friendly** - Touch-optimized interactions
-
-## 🔧 Customization
-
-### Adding New Movie Categories
-
-1. Add new API endpoint in `src/config/api.js`
-2. Create API function in `src/services/tmdbApi.js`
-3. Add React Query hook in `src/hooks/useMovieApi.js`
-4. Create new page component
-
-### Styling Customization
-
-- Edit `tailwind.config.js` for theme customization
-- Modify animations in Framer Motion components
-- Update color schemes in Tailwind classes
-
-## 🚀 Deployment
-
-### Build for Production
-
-```bash
-npm run build
-# or
-yarn build
-```
-
-### Deploy to Vercel
-
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run: `vercel`
-3. Follow the prompts
-
-### Deploy to Netlify
-
-1. Build the project: `npm run build`
-2. Drag and drop the `build` folder to Netlify
-3. Set environment variables in Netlify dashboard
-
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-## 📄 License
+## API Credits
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [The Movie Database (TMDB)](https://www.themoviedb.org/) for the movie data
-- [React](https://reactjs.org/) team for the amazing framework
-- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
-- [Framer Motion](https://www.framer.com/motion/) for smooth animations
-
-## 📞 Support
-
-If you have any questions or need help, please open an issue or contact [your-email@example.com](mailto:your-email@example.com).
-
----
-
-**Built with ❤️ by [Your Name]** 
+This product uses the TMDB API but is not endorsed or certified by TMDB. 
