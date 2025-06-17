@@ -3,6 +3,10 @@
 /.pnp
 .pnp.js
 
+# Lock files (allow users to get latest compatible versions)
+package-lock.json
+yarn.lock
+
 # Testing
 /coverage
 
